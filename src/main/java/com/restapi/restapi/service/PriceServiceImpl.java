@@ -18,6 +18,17 @@ public class PriceServiceImpl implements PriceService {
         list.add(new Course(4, "Intro to C", 150, 0));
         list.add(new Course(5, "Intro to Angular", 830, 1));
         list.add(new Course(6, "Intro to NodeJS", 1150, 2));
+
+        list.add(new Course(7, "Intro to coding", 2280, 0));
+        list.add(new Course(8, "Intro to programs", 1450, 1));
+        list.add(new Course(9, "Intro to practice", 1220, 2));
+        list.add(new Course(10, "Intro to C++", 1510, 0));
+        list.add(new Course(11, "Intro to spring", 230, 1));
+        list.add(new Course(12, "Intro to springboot", 1450, 2));
+
+        list.add(new Course(13, "Intro to restapi", 2800, 0));
+        list.add(new Course(14, "Intro to algorithms", 4250, 1));
+        list.add(new Course(15, "Intro to data structures", 2520, 2));
     }
 
 
@@ -32,6 +43,11 @@ public class PriceServiceImpl implements PriceService {
                 price = course.getPrice();
                 priceStrategy = course.getPriceStrategy();
             }
+        }
+
+        if(priceStrategy == -1){
+            CourseResponse courseResponse = new CourseResponse(0, "Course not found");
+            return courseResponse;
         }
 
         ConversionFee conversionFee = new ConversionFee();
